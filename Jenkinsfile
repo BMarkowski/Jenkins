@@ -3,13 +3,11 @@ pipeline {
 
     environment {
         DOCKER_HUB_PASSWORD = credentials('DOCKER_HUB_PASSWORD')
+        dockerHome = tool 'mydocker' 
+        env.PATH = "${dockerHome}/bin:${env.PATH}"
     }
 
     stages {
-
-        stage('Initialize') {   
-                 def dockerHome = tool 'mydocker'        env.PATH = "${dockerHome}/bin:${env.PATH}"  
-                   }
         stage('Clear running apps') {
             steps {
                 sh 'docker rm -f flask_app || true'
