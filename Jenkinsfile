@@ -8,7 +8,6 @@ pipeline {
     stages {
         stage('Clear running apps') {
             steps {
-                -v /var/run/docker.sock:/var/run/docker.sock
                 sh 'docker rm -f flask_app || true'
             }
         }
