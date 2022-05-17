@@ -20,7 +20,7 @@ pipeline {
         }
         stage('Run app') {
             steps {
-                sh "docker run -d -p 127.0.0.1:5555:5555 --net=environment_docker_network --name flask_app -t flask_app:${BUILD_NUMBER}"
+                sh "docker run -d -p 127.0.0.1:5555:5555 --net=jenkins_default --name flask_app -t flask_app:${BUILD_NUMBER}"
             }
         }
         stage('Upload Docker Image to Docker Hub') {
