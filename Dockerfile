@@ -1,7 +1,4 @@
-FROM python:3.9-slim-buster
-RUN mkdir /usr/src/app/
-COPY . /usr/src/app/
-WORKDIR /usr/src/app/
-EXPOSE 5555
-RUN pip install -r requirements.txt
-CMD ["python", "app.py"]
+FROM jenkins/jenkins:lts
+USER root
+RUN apt update && apt install -y python3 python3-pip
+RUN curl -fsSL get.docker.com | bash
