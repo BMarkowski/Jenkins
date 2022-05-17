@@ -7,7 +7,8 @@ services:
     ports:
     - 8080:8080
     - 50000:50000
-  container_name: jenkins1
-  volumes:
-    - ./volumes/jenkins:/var/jenkins_home:rw
-    - ./volumes/jenkins:/var/run/docker.sock:rw
+    container_name: jenkins1
+    volumes:
+      - ./volumes/jenkins:/var/jenkins_home:rw
+      - /var/run/docker.sock:/var/run/docker.sock:rw
+      
